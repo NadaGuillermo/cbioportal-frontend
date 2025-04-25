@@ -104,6 +104,13 @@ var config = {
         // hash: false,
         publicPath: '/',
     },
+    cache: {
+        type: 'filesystem',
+    },
+
+    watchOptions: {
+        ignored: '/node_modules/',
+    },
 
     optimization: {
         minimizer: [
@@ -473,7 +480,8 @@ if (isDev) {
 }
 
 if (isDev || isTest) {
-    config.devtool = sourceMap;
+    //config.devtool = sourceMap;
+    config.devtool = 'eval';
 
     // in dev we don't want to load the twitter widget b/c it can block load of site
     config.resolve.alias['react-twitter-widgets'] = join(

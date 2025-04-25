@@ -1,7 +1,8 @@
-# set e.g.
-export CBIOPORTAL_URL="http://localhost:8080"
+# set for example
+export CBIOPORTAL_URL="https://cbioportal.imi.med.fau.de"
+# export CBIOPORTAL_URL="https://www.cbioportal.org"
 export GENOME_NEXUS_URL="https://www.genomenexus.org"
 # export FHIRSPARK_HOST=localhost
-export FHIRSPARK_PORT=3001
-export CANCERDRUGS_URL="https://componc.github.io/cancerdrugs"
-export CANCERDRUGSJSON_URL="https://componc.github.io/cancerdrugs/data/drugs/"
+# export FHIRSPARK_PORT=3001
+# export CANCERDRUGS_URL="https://componc.github.io/cancerdrugs"
+# export CANCERDRUGSJSON_URL="https://componc.github.io/cancerdrugs/data/drugs/"
