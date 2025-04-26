@@ -66,3 +66,5 @@ junit.xml
 .nvim.lua
 .luarc.json
 .vs/
+src/pages/patientView/proms/components/HealthStateChart.tsx
+src/pages/patientView/proms/components/HealthStateChartDemo.tsx
