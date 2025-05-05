@@ -7,6 +7,7 @@ import { PatientViewPageStore } from 'pages/patientView/clinicalInformation/Pati
 import PatientViewMutationsDataStore from 'pages/patientView/mutation/PatientViewMutationsDataStore';
 import WindowStore from 'shared/components/window/WindowStore';
 
+// Define props of timeline
 interface PatientTimelineProps {
     patientViewPageStore: PatientViewPageStore;
     sampleManager: any;
