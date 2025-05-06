@@ -218,37 +218,30 @@ const mergeArrays = (
     return result;
 };
 
-// functional hook to display standard range in plot
+// function to display standard range in plot
+const createRangeData = (dataSet: DataSet, standardRange: Range): DataSet => {
+    const { minX, maxX } = getXDomain(dataSet);
 
-const useStandardRangeData = (
-    dataSet: DataSet,
-    standardRange: Range
-): DataSet => {
-    return useMemo(() => {
-        const { minX, maxX } = getXDomain(dataSet);
+    if (minX === null || maxX === null) return {};
 
-        if (minX === null || maxX === null) return {};
-
-        // if name given in standardRange, use this, otherwise a default name
-        const name = standardRange.name ? standardRange.name : 'Standard Range';
-        // create DataSet of two elements = four value pairs
-        const result: DataSet = {
-            [name]: [
-                {
-                    x: minX,
-                    y: standardRange.range[1],
-                    y0: standardRange.range[0],
-                },
-                {
-                    x: maxX,
-                    y: standardRange.range[1],
-                    y0: standardRange.range[0],
-                },
-            ],
-        };
-
-        return result;
-    }, [dataSet, standardRange]);
+    // if name given in standardRange, use this, otherwise a default name
+    const name = standardRange.name ? standardRange.name : 'Standard Range';
+    // create DataSet of two elements = four value pairs
+    const result: DataSet = {
+        [name]: [
+            {
+                x: minX,
+                y: standardRange.range[1],
+                y0: standardRange.range[0],
+            },
+            {
+                x: maxX,
+                y: standardRange.range[1],
+                y0: standardRange.range[0],
+            },
+        ],
+    };
+    return result;
 };
 
 /* Plot logic */
@@ -381,7 +374,7 @@ const LineScatterPlot: React.FC<LineScatterPlotProps> = ({
     }[] = [];
 
     if (standardRange) {
-        standardRangeData = useStandardRangeData(data, standardRange);
+        standardRangeData = createRangeData(data, standardRange);
         standardRangeDataProcessed = useProcessedData(
             standardRangeData,
             yRange,
@@ -400,10 +393,7 @@ const LineScatterPlot: React.FC<LineScatterPlotProps> = ({
 
     // rendering
     return (
-        <div
-            className="container"
-            style={{ display: 'flex', alignItems: 'flex-start' }}
-        >
+        <div>
             <VictoryChart
                 width={width}
                 height={height}
