@@ -169,6 +169,7 @@ const Proms = ({
                     secondYTickFormat={VAS_VALUES_ALPHA}
                     secondYRange={VAS_RANGE}
                     standardRange={standardRange}
+                    showTooltip={true}
                 />
             </div>
 
@@ -183,6 +184,7 @@ const Proms = ({
                     yLabel={'Problems'}
                     yTickFormat={VALUES_ALPHA}
                     yRange={VALUES_RANGE}
+                    showTooltip={true}
                 />
             </div>
 
