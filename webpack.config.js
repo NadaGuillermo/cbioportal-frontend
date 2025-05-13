@@ -489,7 +489,7 @@ if (isDev || isTest) {
         'shared/Empty.tsx'
     );
 
-    config.plugins.push(new ForkTsCheckerWebpackPlugin());
+    // config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
     // css modules for any scss matching test
     config.module.rules.push({
